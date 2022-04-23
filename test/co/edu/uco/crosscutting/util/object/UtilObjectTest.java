@@ -1,5 +1,14 @@
 package co.edu.uco.crosscutting.util.object;
 
-public class UtilObjectTest {
+import static org.junit.jupiter.api.Assertions.*;
+
+import org.junit.jupiter.api.Test;
+
+class UtilObjectTest {
+
+	@Test
+	void test() {
+		fail("Not yet implemented");
+	}
 
 }
