@@ -1,12 +1,13 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  <groupId>co.edu.uco.grades</groupId>
-  <artifactId>DataGrades</artifactId>
+  <groupId>co.edu.co.crosscutting</groupId>
+  <artifactId>CrossCutting</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  <name>DataGrades</name>
-  <description>componente que contiene toda la lógica de acceso a datos.</description>
+  <name>CrossCutting</name>
+  <description>componente que contiene la utilidad que puede ser usada por cualquier otro componente en la versio de java 17</description>
   <build>
     <sourceDirectory>src</sourceDirectory>
+    <testSourceDirectory>test</testSourceDirectory>
     <plugins>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -17,16 +18,4 @@
       </plugin>
     </plugins>
   </build>
-  <dependencies>
-  	<dependency>
-  		<groupId>co.edu.uco.grades</groupId>
-  		<artifactId>DTOGrades</artifactId>
-  		<version>0.0.1-SNAPSHOT</version>
-  	</dependency>
-  	<dependency>
-  		<groupId>co.edu.uco.grades</groupId>
-  		<artifactId>CrossCuttingGrades</artifactId>
-  		<version>0.0.1-SNAPSHOT</version>
-  	</dependency>
-  </dependencies>
 </project>

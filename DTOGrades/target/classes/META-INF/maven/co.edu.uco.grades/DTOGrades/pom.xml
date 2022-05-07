@@ -4,7 +4,7 @@
   <artifactId>DTOGrades</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>DTOGrades</name>
-  <description>Componente encargado de alojar las estructuras de transferencia de datos</description>
+  <description>componente encargado de alojar las estructuras de transferencia de datos</description>
   <build>
     <sourceDirectory>src</sourceDirectory>
     <plugins>
@@ -17,4 +17,11 @@
       </plugin>
     </plugins>
   </build>
+  <dependencies>
+  	<dependency>
+  		<groupId>co.edu.uco.grades</groupId>
+  		<artifactId>CrossCuttingGrades</artifactId>
+  		<version>0.0.1-SNAPSHOT</version>
+  	</dependency>
+  </dependencies>
 </project>

@@ -1,42 +1,63 @@
 package co.edu.uco.crosscutting.util.object;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.converter.DefaultArgumentConverter;
 
 class UtilObjectTest {
 
 	@Test
 	void validateIfObjectIsNull() {
-		//arrange
-		UtilObject utilObject =UtilObject.getUtilObject();
-		//act 
-		boolean result= utilObject.isNull(value);
-		
-		//assert
+		// Arrange
+		Object value = null;
+
+		// Act
+		boolean result = UtilObject.getUtilObject().isNull(value);
+
+		// Assert
 		assertTrue(result);
 	}
+
 	@Test
 	void validateIfObjectIsNotNull() {
-		//arrange
-		object value= new Object();
-		//act 
-		boolean result= UtilObject.getUtilObject().isNull(value);
-		//assert
+		// Arrange
+		Object value = new Object();
+
+		// Act
+		boolean result = UtilObject.getUtilObject().isNull(value);
+
+		// Assert
 		assertFalse(result);
 	}
+
 	@Test
-	void validateIfObjectIsEqualToOriginal() {
-		//arrange 
-		Object value= null;
-		Object defaultValue= new Object();
-		//act
+	void validateIfNotNullObjectIsEqualToOriginal() {
+		// Arrange
+		Object value = new Object();
+		Object defaultValue = new Object();
+
+		// Act
 		Object result = UtilObject.getUtilObject().getDefault(value, defaultValue);
-		//Assert
+
+		// Assert
 		assertTrue(value.equals(result));
 	}
+	
+	@Test
+	void validateIfObjectIsEqualToDefaulObjectWhenOriginalObjectIsNull() {
+		// Arrange
+		Object value = null;
+		Object defaultValue = new Object();
 
+		// Act
+		Object result = UtilObject.getUtilObject().getDefault(value, defaultValue);
+
+		// Assert
+		assertTrue(defaultValue.equals(result));
+	}
+	
+	
 	
 	
 	
