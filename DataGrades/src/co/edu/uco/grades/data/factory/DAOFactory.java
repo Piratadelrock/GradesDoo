@@ -15,7 +15,5 @@ public abstract class DAOFactory {
 	public abstract void rollbackTransaction();
 	public abstract StudentDAO getStudentDAO();
 	
-	public abstract IdTypeDAO getIdTypeDAO();
-	
 
 }

@@ -1,19 +1,28 @@
 package co.edu.uco.grades.dto;
 
-public class IdTypeDTO {
-	
+import co.edu.uco.crosscutting.util.text.UtilText;
+
+public class IdTypeDto {
 	private int id;
 	private String name;
-	
-	public IdTypeDTO(int id, String name) {
-		super();
-		this.id = id;
-		this.name = name;
-	}
-	
 	public int getId() {
 		return id;
 	}
+	
+	private IdTypeDto() {
+		super();
+		setName(UtilText.EMPTY);
+		
+	}
+	
+	
+	private IdTypeDto(int id, String name) {
+		super();
+		setId(id);
+		setName(name);
+	}
+
+
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -21,8 +30,10 @@ public class IdTypeDTO {
 		return name;
 	}
 	public void setName(String name) {
-		this.name = name;
+		this.name = UtilText;
 	}
-
 	
+	
+	
+
 }

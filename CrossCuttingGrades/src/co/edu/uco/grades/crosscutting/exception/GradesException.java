@@ -1,6 +1,6 @@
 package co.edu.uco.grades.crosscutting.exception;
 
-import static co.edu.uco.crosscutting.util.object.UtilObject.getUtilObject;	
+import static co.edu.uco.crosscutting.util.object.UtilObject.getUtilObject;
 
 import co.edu.uco.crosscutting.exception.GeneralException;
 import co.edu.uco.grades.crosscutting.exception.enumeration.ExceptionLocation;
@@ -13,10 +13,10 @@ public class GradesException extends GeneralException {
 	private ExceptionLocation location;
 
 	private GradesException(String userMessage, String technicalMessage, String rootException, ExceptionType technical,
-			String location) {
+			String location2) {
 		super(userMessage, technicalMessage, rootException);
 		setType(technical);
-		setLocation(location);
+		setLocation(location2);
 	}
 
 	public static GradesException buildUserException(String userMessage) {
@@ -27,13 +27,13 @@ public class GradesException extends GeneralException {
 		return new GradesException(null, technicalMessage, null, ExceptionType.TECHNICAL, null);
 	}
 	
-	public static GradesException buildTechnicalDataException(String technicalMessage) {
-		return new GradesException(null, technicalMessage, null, ExceptionType.TECHNICAL, ExceptionLocation.DATA);
-	}
-	
+
 	public static GradesException buildTechnicalException(String technicalMessage, Exception rootException,
 			ExceptionType type, ExceptionLocation location) {
 		return new GradesException(null, technicalMessage, rootException, type, location);
+	}
+	public static GradesException buildTechnicalDataException(String technicalMessage) {
+		return new GradesException(null, technicalMessage, ExceptionType.TECHNICAL, ExceptionLocation.DATA);
 	}
 
 	public static GradesException build(String userMessage, String technicalMessage) {

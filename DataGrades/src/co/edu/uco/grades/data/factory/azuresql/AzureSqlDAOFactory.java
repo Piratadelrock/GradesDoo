@@ -1,6 +1,6 @@
 package co.edu.uco.grades.data.factory.azuresql;
 
-import java.sql.Connection;	
+import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
@@ -41,7 +41,8 @@ public class AzureSqlDaoFactory extends DAOFactory {
 	@Override
 	protected Connection getCoonection() {
 		return connection;
-
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
@@ -54,7 +55,7 @@ public class AzureSqlDaoFactory extends DAOFactory {
 			getCoonection().close();
 		}catch ( SQLException exception) {
 			throw GradesException.buildTechnicalException("there was a problem trying to close the connection with Sql server at jdbc:sqlserver://academic-database-server.database.windows.net:1433;database=academic-db;user=academicDmlUser ", exception, ExceptionType.TECHNICAL, ExceptionLocation.DATA);
-			// TODO: handle exception
+			
 		}catch(Exception exception) {
 			throw GradesException.buildTechnicalException("an unexpected problem trying to close the connection with Sql server at jdbc:sqlserver://academic-database-server.database.windows.net:1433;database=academic-db;user=academicDmlUser ", exception, ExceptionType.TECHNICAL, ExceptionLocation.DATA);
 			
@@ -69,10 +70,16 @@ public class AzureSqlDaoFactory extends DAOFactory {
 			throw GradesException.buildTechnicalException("it's no possible open close because it's alredy closed or is null");
 		}
 		try {
+			if (!getCoonection().getAutoCommit()) {
+				
+	throw GradesException.buildTechnicalException("it's no possible to commit because the data ");
+				
+			}
+			getCoonection().commit();
 			getCoonection().setAutoCommit(false);
 		}catch ( SQLException exception) {
 			throw GradesException.buildTechnicalException("there was a problem trying to rollback the transaction with Sql server at jdbc:sqlserver://academic-database-server.database.windows.net:1433;database=academic-db;user=academicDmlUser ", exception, ExceptionType.TECHNICAL, ExceptionLocation.DATA);
-			// TODO: handle exception
+			
 		}catch(Exception exception) {
 			throw GradesException.buildTechnicalException("an unexpected problem trying to close the transaction with Sql server at jdbc:sqlserver://academic-database-server.database.windows.net:1433;database=academic-db;user=academicDmlUser ", exception, ExceptionType.TECHNICAL, ExceptionLocation.DATA);
 			
@@ -87,13 +94,19 @@ public class AzureSqlDaoFactory extends DAOFactory {
 		}
 		
 		try {
+			if (getCoonection().getAutoCommit()) {
+				
+				throw GradesException.buildTechnicalException("it's no possible to commit because the data ");
+				
+			}
 			getCoonection().commit();
-		}catch (GradesException exception) {
-			throw exception;
 			
-		}catch ( SQLException exception) {
+		}catch(GradesException exception) {
+			throw exception;
+		}
+		catch ( SQLException exception) {
 			throw GradesException.buildTechnicalException("there was a problem trying to commit the connection with Sql server at jdbc:sqlserver://academic-database-server.database.windows.net:1433;database=academic-db;user=academicDmlUser ", exception, ExceptionType.TECHNICAL, ExceptionLocation.DATA);
-			// TODO: handle exception
+			
 		}catch(Exception exception) {
 			throw GradesException.buildTechnicalException("an unexpected problem trying to close the connection with Sql server at jdbc:sqlserver://academic-database-server.database.windows.net:1433;database=academic-db;user=academicDmlUser ", exception, ExceptionType.TECHNICAL, ExceptionLocation.DATA);
 			
@@ -109,14 +122,24 @@ public class AzureSqlDaoFactory extends DAOFactory {
 		{
 			throw GradesException.buildTechnicalException("it's no possible open close because it's alredy closed or is null");
 		}
+		
+		
 		try {
-			if(getConnection().getAutoCommit()) {
+			try {
+				if (getCoonection().getAutoCommit()) {
+					
+					throw GradesException.buildTechnicalException("it's no possible to commit because the data ");
+					
+				}
+				getCoonection().commit();
 				
+			}catch(GradesException exception) {
+				throw exception;
 			}
 			getCoonection().rollback();
 		}catch ( SQLException exception) {
 			throw GradesException.buildTechnicalException("there was a problem trying to rollback the transaction with Sql server at jdbc:sqlserver://academic-database-server.database.windows.net:1433;database=academic-db;user=academicDmlUser ", exception, ExceptionType.TECHNICAL, ExceptionLocation.DATA);
-			// TODO: handle exception
+			
 		}catch(Exception exception) {
 			throw GradesException.buildTechnicalException("an unexpected problem trying to close the transaction with Sql server at jdbc:sqlserver://academic-database-server.database.windows.net:1433;database=academic-db;user=academicDmlUser ", exception, ExceptionType.TECHNICAL, ExceptionLocation.DATA);
 			
@@ -127,6 +150,7 @@ public class AzureSqlDaoFactory extends DAOFactory {
 
 	@Override
 	public StudentDAO getStudentDAO() {
+	
 		return StudentAzureSqlDAO.create(getCoonection());
 	}
 	
