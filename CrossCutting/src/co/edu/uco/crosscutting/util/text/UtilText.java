@@ -6,6 +6,8 @@ public class UtilText {
 
 	public static final String EMPTY = "";
 
+	public static final String SPACE = " ";
+
 	private UtilText() {
 	}
 
@@ -13,11 +15,11 @@ public class UtilText {
 		return getUtilObject().isNull(value);
 	}
 
-	private static String getDefault(String value, String defaultValue) {
+	public static String getDefault(String value, String defaultValue) {
 		return getUtilObject().getDefault(value, defaultValue);
 	}
 
-	private static String getDefault(String value) {
+	public static String getDefault(String value) {
 		return getDefault(value, EMPTY);
 	}
 
@@ -25,4 +27,7 @@ public class UtilText {
 		return getDefault(value).trim();
 	}
 
+	public static boolean isEmpty(String value) {
+		return EMPTY.equals(trim(value));
+	}
 }
