@@ -3,8 +3,12 @@ package co.edu.uco.grades.data.factory;
 import java.sql.Connection;
 
 import co.edu.uco.grades.data.dao.AttendanceDAO;
+import co.edu.uco.grades.data.dao.CourseDAO;
 import co.edu.uco.grades.data.dao.IdTypeDAO;
 import co.edu.uco.grades.data.dao.ProfessorDAO;
+import co.edu.uco.grades.data.dao.SessionDAO;
+import co.edu.uco.grades.data.dao.StudentCourseDAO;
+import co.edu.uco.grades.data.dao.StudentCourseStateDAO;
 import co.edu.uco.grades.data.dao.StudentDAO;
 import co.edu.uco.grades.data.dao.SubjectDAO;
 import co.edu.uco.grades.data.factory.azuresql.AzureSqlDAOFactory;
@@ -36,6 +40,13 @@ public abstract class DAOFactory {
 	public abstract SubjectDAO getSubjectDAO();
 
 	public abstract AttendanceDAO getAttendanceDAO();
+	public abstract CourseDAO getCourseDAO();
+	public abstract SessionDAO getSessionDAO();
+	
+	public abstract StudentCourseDAO getStudentCourseDAO();
+	public abstract StudentCourseStateDAO getStudentCourseStateDAO();
+
+	
 	
 
 	
