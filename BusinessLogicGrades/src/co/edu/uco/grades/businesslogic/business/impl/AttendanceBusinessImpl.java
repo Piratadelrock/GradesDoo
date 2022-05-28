@@ -2,47 +2,33 @@ package co.edu.uco.grades.businesslogic.business.impl;
 
 import java.util.List;
 
-import co.edu.uco.crosscutting.util.object.UtilObject;
 import co.edu.uco.grades.businesslogic.business.AttendanceBusiness;
-import co.edu.uco.grades.crosscutting.exception.GradesException;
-import co.edu.uco.grades.data.factory.DAOFactory;
 import co.edu.uco.grades.dto.AttendanceDTO;
 
 public class AttendanceBusinessImpl implements AttendanceBusiness {
-	
-	private DAOFactory daoFactory;
-
-	public AttendanceBusinessImpl(DAOFactory daoFactory) {
-		if (UtilObject.getUtilObject().isNull(daoFactory)) {
-			throw GradesException.buildTechnicalBusinessLogicException("It's not possible create a AttendanceBusinessImpl when the DAOFactory is null");
-		}
-
-		this.daoFactory = daoFactory;
-	}
 
 	@Override
 	public void create(AttendanceDTO dto) {
-		
-		daoFactory.getAttendanceDAO().create(dto);
+		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void update(AttendanceDTO dto) {
-		
-		daoFactory.getAttendanceDAO().update(dto);
+		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
 	public void delete(int id) {
+		// TODO Auto-generated method stub
 		
-		daoFactory.getAttendanceDAO().delete(id);
 	}
 
 	@Override
 	public List<AttendanceDTO> find(AttendanceDTO dto) {
-		return daoFactory.getAttendanceDAO().find(dto);
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

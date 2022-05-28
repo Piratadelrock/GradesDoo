@@ -6,7 +6,6 @@ import co.edu.uco.grades.dto.AttendanceDTO;
 
 
 public interface AttendanceBusiness {
-	
 	void create(AttendanceDTO dto);
 
 	void update(AttendanceDTO dto);

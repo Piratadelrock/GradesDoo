@@ -3,19 +3,15 @@ package co.edu.uco.grades.data.dao.azuresql;
 import java.sql.Connection;
 import java.util.List;
 
-import co.edu.uco.grades.data.dao.AttendanceDAO;
 import co.edu.uco.grades.data.dao.CourseDAO;
 import co.edu.uco.grades.data.dao.connection.ConnectionSQL;
 import co.edu.uco.grades.dto.CourseDTO;
 
 public class CourseAzureSqlDAO extends ConnectionSQL implements CourseDAO {
-	
+
 	protected CourseAzureSqlDAO(Connection connection) {
 		super(connection);
 		// TODO Auto-generated constructor stub
-	}
-	public static CourseDAO build(Connection connection) {
-		return new CourseAzureSqlDAO(connection);
 	}
 
 	@Override
@@ -41,6 +37,5 @@ public class CourseAzureSqlDAO extends ConnectionSQL implements CourseDAO {
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
 
 }

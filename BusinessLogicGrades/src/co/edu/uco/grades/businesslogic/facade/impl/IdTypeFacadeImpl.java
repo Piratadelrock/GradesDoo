@@ -9,96 +9,129 @@ import co.edu.uco.grades.crosscutting.exception.GradesException;
 import co.edu.uco.grades.data.factory.DAOFactory;
 import co.edu.uco.grades.dto.IdTypeDTO;
 
-public class IdTypeFacadeImpl implements IdTypeFacade {
-
-	private DAOFactory daoFactory= DAOFactory.getDaoFactory();
+public class IdTypeFacadeImpl implements IdTypeFacade{
 	
+	
+
 	@Override
 	public void create(IdTypeDTO dto) {
+		 DAOFactory daoFactory=DAOFactory.getDaoFactory();
 		
-		 DAOFactory daoFactory= DAOFactory.getDaoFactory();
 		
 		try {
 			daoFactory.initTransaction();
-			IdTypeBusiness idTypeBusiness = new IdTypeBusinessImpl(daoFactory);
+			
+			IdTypeBusiness idTypeBusiness= new IdTypeBusinessImpl(daoFactory);
 			idTypeBusiness.create(dto);
 			daoFactory.commitTransaction();
 		} catch (GradesException exception) {
+			
 			daoFactory.rollbackTransaction();
 			throw exception;
 		} catch (Exception exception) {
+			
+		 
+			
 			daoFactory.rollbackTransaction();
-			var message = "there was a problem tryign to create the new IdType on create method in IdTypeFacade Impl";
-			throw GradesException.buildTechnicalBusinessLogicException(message);
-			// Controlar exception
-		} finally {
+			var message="there was a problem trying to create the new IdTYpe on create method on IdtypeFaceimpl ";
+			 throw GradesException.buildTechnicalBusinessLogicException(message);
+		}finally {
 			daoFactory.closeConnection();
+			
+			
+			
 		}
-
+		
 	}
 
 	@Override
 	public void update(IdTypeDTO dto) {
+		 DAOFactory daoFactory=DAOFactory.getDaoFactory();
+		
 		try {
 			daoFactory.initTransaction();
-			IdTypeBusiness idTypeBusiness = new IdTypeBusinessImpl(daoFactory);
+			
+			IdTypeBusiness idTypeBusiness= new IdTypeBusinessImpl(daoFactory);
 			idTypeBusiness.update(dto);
 			daoFactory.commitTransaction();
 		} catch (GradesException exception) {
+			
 			daoFactory.rollbackTransaction();
 			throw exception;
 		} catch (Exception exception) {
+			
+		 
+			
 			daoFactory.rollbackTransaction();
-			var message = "there was a problem tryign to update the new IdType on update method in IdTypeFacade Impl";
-			throw GradesException.buildTechnicalBusinessLogicException(message);
-			// Controlar exception
-		} finally {
+			var message="there was a problem trying to update the new IdTYpe on update method on IdtypeFaceimpl ";
+			 throw GradesException.buildTechnicalBusinessLogicException(message);
+		}finally {
 			daoFactory.closeConnection();
+			
+			
+			
 		}
-
+		
 	}
 
 	@Override
 	public void delete(int id) {
-		try {
-			daoFactory.initTransaction();
-			IdTypeBusiness idTypeBusiness = new IdTypeBusinessImpl(daoFactory);
-			idTypeBusiness.delete(id);
-			daoFactory.commitTransaction();
-		} catch (GradesException exception) {
-			daoFactory.rollbackTransaction();
-			throw exception;
-		} catch (Exception exception) {
-			daoFactory.rollbackTransaction();
-			var message = "there was a problem tryign to delete the new IdType on delete method in IdTypeFacade Impl";
-			throw GradesException.buildTechnicalBusinessLogicException(message);
-			// Controlar exception
-		} finally {
-			daoFactory.closeConnection();
-		}
-
+		 DAOFactory daoFactory=DAOFactory.getDaoFactory();
+			
+			try {
+				daoFactory.initTransaction();
+				
+				IdTypeBusiness idTypeBusiness= new IdTypeBusinessImpl(daoFactory);
+				idTypeBusiness.delete(id);
+				daoFactory.commitTransaction();
+			} catch (GradesException exception) {
+				
+				daoFactory.rollbackTransaction();
+				throw exception;
+			} catch (Exception exception) {
+				
+			 
+				
+				daoFactory.rollbackTransaction();
+				var message="there was a problem trying to update the new IdTYpe on update method on IdtypeFaceimpl ";
+				 throw GradesException.buildTechnicalBusinessLogicException(message);
+			}finally {
+				daoFactory.closeConnection();
+				
+				
+				
+			}
+		
 	}
 
 	@Override
 	public List<IdTypeDTO> find(IdTypeDTO dto) {
-		try {
-			daoFactory.initTransaction();
-			IdTypeBusiness idTypeBusiness = new IdTypeBusinessImpl(daoFactory);
-			idTypeBusiness.find(dto);
-			daoFactory.commitTransaction();
-		} catch (GradesException exception) {
-			daoFactory.rollbackTransaction();
-			throw exception;
-		} catch (Exception exception) {
-			daoFactory.rollbackTransaction();
-			var message = "there was a problem tryign to find the new IdType on find method in IdTypeFacade Impl";
-			throw GradesException.buildTechnicalBusinessLogicException(message);
-			// Controlar exception
-		} finally {
-			daoFactory.closeConnection();
-		}
-
-		return null;
+		 DAOFactory daoFactory=DAOFactory.getDaoFactory();
+			
+			try {
+				
+				
+				IdTypeBusiness idTypeBusiness= new IdTypeBusinessImpl(daoFactory);
+			
+				return idTypeBusiness.find(dto);
+				
+			} catch (GradesException exception) {
+				
+				daoFactory.rollbackTransaction();
+				throw exception;
+			} catch (Exception exception) {
+				
+			 
+				daoFactory.rollbackTransaction();
+				var message="there was a problem trying to find the new IdTYpe on find method on IdtypeFaceimpl ";
+				 throw GradesException.buildTechnicalBusinessLogicException(message);
+			}finally {
+				daoFactory.closeConnection();
+				
+				
+				
+			}
 	}
+	
 
 }

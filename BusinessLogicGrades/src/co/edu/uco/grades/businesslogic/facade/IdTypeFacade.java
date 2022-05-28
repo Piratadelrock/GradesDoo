@@ -5,8 +5,7 @@ import java.util.List;
 import co.edu.uco.grades.dto.IdTypeDTO;
 
 public interface IdTypeFacade {
-
-
+	
 	void create(IdTypeDTO dto);
 
 	void update(IdTypeDTO dto);
@@ -14,4 +13,6 @@ public interface IdTypeFacade {
 	void delete(int id);
 
 	List<IdTypeDTO> find(IdTypeDTO dto);
+	
+
 }

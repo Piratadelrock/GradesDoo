@@ -38,16 +38,17 @@ public abstract class DAOFactory {
 	public abstract ProfessorDAO getProfessorDAO();
 	
 	public abstract SubjectDAO getSubjectDAO();
-
+	
 	public abstract AttendanceDAO getAttendanceDAO();
-	public abstract CourseDAO getCourseDAO();
+	
+	public abstract CourseDAO geCourseDAO();
+	
 	public abstract SessionDAO getSessionDAO();
 	
-	public abstract StudentCourseDAO getStudentCourseDAO();
+	public abstract StudentCourseDAO getCourseDAO();
+	
 	public abstract StudentCourseStateDAO getStudentCourseStateDAO();
-
 	
 	
 
-	
 }

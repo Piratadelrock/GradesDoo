@@ -2,43 +2,33 @@ package co.edu.uco.grades.businesslogic.business.impl;
 
 import java.util.List;
 
-import co.edu.uco.crosscutting.util.object.UtilObject;
 import co.edu.uco.grades.businesslogic.business.ProfessorBusiness;
-import co.edu.uco.grades.crosscutting.exception.GradesException;
-import co.edu.uco.grades.data.factory.DAOFactory;
 import co.edu.uco.grades.dto.ProfessorDTO;
 
 public class ProfessorBusinessImpl implements ProfessorBusiness{
-	
-	private DAOFactory daoFactory;
-
-	public ProfessorBusinessImpl(DAOFactory daoFactory) {
-		if (UtilObject.getUtilObject().isNull(daoFactory)) {
-			throw GradesException.buildTechnicalBusinessLogicException("It's not possible create a ProfessorBusinessImpl when the DAOFactory is null");
-		}
-
-		this.daoFactory = daoFactory;
-	}
 
 	@Override
 	public void create(ProfessorDTO dto) {
-		daoFactory.getProfessorDAO().create(dto);
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
 	public void update(ProfessorDTO dto) {
-		daoFactory.getProfessorDAO().update(dto);
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
 	public void delete(int id) {
-		daoFactory.getProfessorDAO().delete(id);
+		// TODO Auto-generated method stub
+		
 	}
 
 	@Override
 	public List<ProfessorDTO> find(ProfessorDTO dto) {
-		
-		return daoFactory.getProfessorDAO().find(dto);
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 }

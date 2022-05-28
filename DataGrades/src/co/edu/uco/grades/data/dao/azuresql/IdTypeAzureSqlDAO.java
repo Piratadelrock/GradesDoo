@@ -137,9 +137,11 @@ public class IdTypeAzureSqlDAO extends ConnectionSQL implements IdTypeDAO {
 		} catch (GradesException exception) {
 			throw exception;
 		} catch (SQLException exception) {
-			throw GradesException.buildTechnicalDataException("There was a problem trying to execute the query for recovery the IdTypes on Azure SQL Server", exception);
+			throw GradesException.buildTechnicalDataException(
+					"There was a problem trying to execute the query for recovery the IdTypes on Azure SQL Server", exception);
 		} catch (Exception exception) {
-			throw GradesException.buildTechnicalDataException("An unexpected problem has ocurred trying to execute the query for recovery the IdTypes on Azure SQL Server", exception);
+			throw GradesException.buildTechnicalDataException(
+					"An unexpected problem has ocurred trying to execute the query for recovery the IdTypes on Azure SQL Server", exception);
 		}
 
 		return results;
