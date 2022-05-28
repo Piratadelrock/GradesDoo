@@ -98,8 +98,6 @@ public class IdTypeFacadeImpl implements IdTypeFacade{
 			}finally {
 				daoFactory.closeConnection();
 				
-				
-				
 			}
 		
 	}
@@ -114,6 +112,35 @@ public class IdTypeFacadeImpl implements IdTypeFacade{
 				IdTypeBusiness idTypeBusiness= new IdTypeBusinessImpl(daoFactory);
 			
 				return idTypeBusiness.find(dto);
+				
+			} catch (GradesException exception) {
+				
+				daoFactory.rollbackTransaction();
+				throw exception;
+			} catch (Exception exception) {
+				
+			 
+				daoFactory.rollbackTransaction();
+				var message="there was a problem trying to find the new IdTYpe on find method on IdtypeFaceimpl ";
+				 throw GradesException.buildTechnicalBusinessLogicException(message);
+			}finally {
+				daoFactory.closeConnection();
+				
+				
+				
+			}
+	}
+
+	@Override
+	public List<IdTypeDTO> findById(IdTypeDTO dto) {
+		 DAOFactory daoFactory=DAOFactory.getDaoFactory();
+			
+			try {
+				
+				
+				IdTypeBusiness idTypeBusiness= new IdTypeBusinessImpl(daoFactory);
+			
+				return idTypeBusiness.findById(dto);
 				
 			} catch (GradesException exception) {
 				

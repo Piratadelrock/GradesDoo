@@ -46,6 +46,7 @@ public class IdTypeController {
 			try {
 			IdTypeFacade facade= new IdTypeFacadeImpl();
 			facade.create(dto);
+			messages.add("Id type was create succesfully!");
 			statusCode=HttpStatus.OK;
 			
 			}catch (GradesException exception) {

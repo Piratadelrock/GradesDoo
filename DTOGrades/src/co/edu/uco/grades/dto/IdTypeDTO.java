@@ -14,6 +14,7 @@ public class IdTypeDTO {
 
 	public IdTypeDTO() {
 		super();
+		
 		setName(UtilText.EMPTY);
 	}
 
