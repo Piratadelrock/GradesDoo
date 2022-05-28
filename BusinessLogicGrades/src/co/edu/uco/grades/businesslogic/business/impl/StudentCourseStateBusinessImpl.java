@@ -1,9 +1,9 @@
-package co.edu.uco.businesslogic.business.impl;
+package co.edu.uco.grades.businesslogic.business.impl;
 
 import java.util.List;
 
-import co.edu.uco.businesslogic.business.StudentCourseStateBusiness;
 import co.edu.uco.crosscutting.util.object.UtilObject;
+import co.edu.uco.grades.businesslogic.business.StudentCourseStateBusiness;
 import co.edu.uco.grades.crosscutting.exception.GradesException;
 import co.edu.uco.grades.data.factory.DAOFactory;
 import co.edu.uco.grades.dto.StudentCourseStateDTO;
