@@ -60,8 +60,6 @@ public class IdTypeFacadeImpl implements IdTypeFacade{
 			throw exception;
 		} catch (Exception exception) {
 			
-		 
-			
 			daoFactory.rollbackTransaction();
 			var message="there was a problem trying to update the new IdTYpe on update method on IdtypeFaceimpl ";
 			 throw GradesException.buildTechnicalBusinessLogicException(message);
